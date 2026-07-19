@@ -11,7 +11,6 @@ import {
   Tooltip,
 } from "recharts";
 import MathFormula from "./MathFormula";
-import { Slider } from "./ui/slider"; // Let's write a simple custom slider or standard HTML range input to avoid shadcn setup complexities
 
 type WaveType = "square" | "triangle" | "sawtooth";
 

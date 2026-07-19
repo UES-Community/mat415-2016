@@ -7,12 +7,12 @@ import * as THREE from "three";
 
 // Lorenz attractor renderer
 function LorenzLine({ sigma, rho, beta, pointsCount }: { sigma: number; rho: number; beta: number; pointsCount: number }) {
-  const lineRef = useRef<THREE.Line>(null);
+  const primitiveRef = useRef<THREE.Line>(null);
 
   // Animate rotation slightly
   useFrame((state) => {
-    if (lineRef.current) {
-      lineRef.current.rotation.y = state.clock.getElapsedTime() * 0.15;
+    if (primitiveRef.current) {
+      primitiveRef.current.rotation.y = state.clock.getElapsedTime() * 0.15;
     }
   });
 
@@ -37,11 +37,12 @@ function LorenzLine({ sigma, rho, beta, pointsCount }: { sigma: number; rho: num
     return new THREE.BufferGeometry().setFromPoints(points);
   }, [sigma, rho, beta, pointsCount]);
 
-  return (
-    <line ref={lineRef} geometry={geometry}>
-      <lineBasicMaterial color="var(--color-jet-ink)" linewidth={2} />
-    </line>
-  );
+  const lineObject = useMemo(() => {
+    const material = new THREE.LineBasicMaterial({ color: 0x0a0a0a });
+    return new THREE.Line(geometry, material);
+  }, [geometry]);
+
+  return <primitive ref={primitiveRef} object={lineObject} />;
 }
 
 // Separate component for Lorenz particle simulation that flows along the attractor path

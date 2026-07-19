@@ -2,20 +2,20 @@
 @import "katex/dist/katex.min.css";
 
 @theme {
-  /* Colors */
-  --color-jet-ink: #0a0a0a;
-  --color-charcoal: #151515;
-  --color-fog: #858585;
-  --color-pewter: #9d9d9d;
-  --color-steel: #545454;
-  --color-dove: #d5d9e2;
-  --color-cream: #f9f8f6;
-  --color-paper: #ffffff;
-  --color-sand: #f2ede5;
-  --color-slate: #3b3b3b;
-  --color-ember: #ff5f57;
-  --color-sunbeam: #ffbd2e;
-  --color-sprout: #28c840;
+  /* Colors — OKLCH definitions for Tailwind v4 opacity modifier support */
+  --color-jet-ink: oklch(4% 0 0);
+  --color-charcoal: oklch(9% 0 0);
+  --color-fog: oklch(56% 0 0);
+  --color-pewter: oklch(65% 0 0);
+  --color-steel: oklch(36% 0 0);
+  --color-dove: oklch(87% 0.008 255);
+  --color-cream: oklch(98% 0.003 90);
+  --color-paper: oklch(100% 0 0);
+  --color-sand: oklch(94% 0.012 80);
+  --color-slate: oklch(27% 0 0);
+  --color-ember: oklch(62% 0.22 27);
+  --color-sunbeam: oklch(84% 0.17 85);
+  --color-sprout: oklch(73% 0.19 145);
 
   /* Typography */
   --font-universalsans: var(--font-universalsans), ui-sans-serif, system-ui, -apple-system, sans-serif;
